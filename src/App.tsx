@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HomePage } from './pages/HomePage';
 import { PlanYourJourney } from './pages/PlanYourJourney';
 import './styles/globals.css';
