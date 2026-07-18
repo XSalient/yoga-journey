@@ -1,0 +1,59 @@
+---
+project: Journey Within
+tagline: Bespoke yoga, wellness, cultural & adventure journeys. Curated travel planning.
+status: In Progress — Deployment Rebuilding
+updated: 2024-07-18
+---
+
+## Quick Context (for any Claude session)
+
+**What is this?**
+- React 18 + Vite + Tailwind MVP for yoga/wellness travel company
+- 6 planned pages, 2 built (HomePage, PlanYourJourney form)
+- Design system with tokens (colors, typography, spacing, shadows)
+
+**Tech Stack**
+- Frontend: React 18 + TypeScript + Tailwind CSS + Vite
+- Form Validation: Zod + react-hook-form
+- Deployment: Vercel (from GitHub)
+- Status: ✅ Builds locally, 🔄 Vercel rebuilding (SPA routing fix)
+
+**Current Blockers** 🔴
+1. Vercel returns 404 (SPA routing config issue — fix pushed, rebuilding now)
+2. Form has no email backend (logs to console only)
+3. Missing 3 pages (About, Privacy, Experience Detail)
+
+**Completion Status**
+- Built: 2/6 pages (33%)
+- Features: ~60% (components done, form incomplete, no backend)
+- Content: Placeholders only (11 items: logo, images, contact info, testimonials, privacy policy)
+- Design System: 100% (all tokens in Tailwind config)
+
+**Immediate Next Steps**
+1. Verify Vercel deployment is live (check https://yoga-journey.vercel.app/)
+2. Wire form to Formspree or similar email service (30 min)
+3. Fill critical placeholders: logo, WhatsApp, contact email (15 min)
+4. Build remaining 3 pages (2 hours)
+
+**Files to Know**
+- `STATUS.md` — Detailed project status, blockers, file structure
+- `DEPLOYMENT.md` — Deployment guide + troubleshooting
+- `src/components/` — Reusable UI components (Button, FormField, Cards, etc.)
+- `tailwind.config.ts` — All design tokens (colors, typography, spacing)
+- `vercel.json` — Vercel deployment config (just fixed SPA routing)
+
+**GitHub**: https://github.com/XSalient/yoga-journey (4 commits)
+**Vercel URL** (rebuilding): https://yoga-journey.vercel.app/
+
+**Key Decision Points**
+- Form backend: Use Formspree (free, recommended) or custom API?
+- Timeline: When do you need stakeholder approval?
+- Content: Can you provide images, company info, testimonials?
+
+**How to Help**
+If you're a future Claude session:
+1. Read `STATUS.md` for full details
+2. Check git log for commit history
+3. Run `npm install && npm run build` to verify local build works
+4. Check Vercel deployment logs if site is down
+5. Ask what to build next (missing pages, form backend, placeholders)

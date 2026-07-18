@@ -1,0 +1,222 @@
+{
+  "project": {
+    "name": "Journey Within",
+    "description": "MVP website for bespoke yoga, wellness, cultural and adventure travel journeys",
+    "type": "web-app",
+    "status": "in-progress",
+    "updated": "2024-07-18T22:55:00Z",
+    "owner": "XSalient",
+    "repository": "https://github.com/XSalient/yoga-journey",
+    "deployment": {
+      "platform": "vercel",
+      "url": "https://yoga-journey.vercel.app/",
+      "status": "rebuilding",
+      "last_push": "2024-07-18T22:55:00Z"
+    }
+  },
+  "tech_stack": {
+    "language": "TypeScript",
+    "frontend": {
+      "framework": "React 18.2.0",
+      "build_tool": "Vite 5.0.8",
+      "styling": "Tailwind CSS 3.3.6",
+      "forms": "react-hook-form 7.48.0",
+      "validation": "Zod 3.22.4"
+    },
+    "backend": {
+      "status": "not-implemented",
+      "planned": "Formspree or custom API for form submissions"
+    }
+  },
+  "pages": {
+    "total": 6,
+    "completed": 2,
+    "completion_percent": 33,
+    "list": [
+      {
+        "name": "HomePage",
+        "route": "/",
+        "status": "complete",
+        "sections": 9,
+        "file": "src/pages/HomePage.tsx"
+      },
+      {
+        "name": "PlanYourJourney",
+        "route": "/plan",
+        "status": "complete",
+        "file": "src/pages/PlanYourJourney.tsx"
+      },
+      {
+        "name": "Experiences",
+        "route": "/experiences",
+        "status": "missing",
+        "priority": "high"
+      },
+      {
+        "name": "Experience Detail",
+        "route": "/experiences/:slug",
+        "status": "missing",
+        "priority": "high"
+      },
+      {
+        "name": "About",
+        "route": "/about",
+        "status": "missing",
+        "priority": "medium"
+      },
+      {
+        "name": "Privacy Policy",
+        "route": "/privacy",
+        "status": "stub-only",
+        "priority": "medium"
+      }
+    ]
+  },
+  "components": {
+    "total": 9,
+    "completed": 9,
+    "list": [
+      "Button (4 variants: primary, secondary, tertiary, whatsapp)",
+      "FormField (input, textarea, select with validation)",
+      "EnquiryForm (full form with Zod validation)",
+      "ExperienceCard",
+      "ServiceModeCard",
+      "BenefitCard",
+      "TestimonialCard",
+      "Header (with navigation)",
+      "Footer (with links and company info)"
+    ]
+  },
+  "design_system": {
+    "status": "complete",
+    "tokens": {
+      "colors": {
+        "primary": "forest-500 (#173F35)",
+        "secondary": "terra-500 (#B7684D)",
+        "accent": "gold-500 (#C6A15B)",
+        "backgrounds": ["primary", "secondary"],
+        "text": ["primary", "muted"],
+        "semantic": ["success", "error", "border"]
+      },
+      "typography": {
+        "serif": "Cormorant Garamond",
+        "sans": "Inter",
+        "scales": ["display", "h1", "h2", "h3", "body", "body-sm", "eyebrow"]
+      },
+      "spacing": "11 tokens (xs-4xl)",
+      "shadows": "4 levels (sm-xl)",
+      "border_radius": ["sm", "md", "lg"]
+    }
+  },
+  "content": {
+    "experiences": 6,
+    "benefits": 5,
+    "process_steps": 4,
+    "testimonials": 3,
+    "travel_modes": 3
+  },
+  "blockers": [
+    {
+      "id": "vercel-404",
+      "severity": "critical",
+      "description": "Site returns 404 on Vercel (SPA routing issue)",
+      "status": "in-progress",
+      "fix": "Updated vercel.json with correct routes syntax, pushed, awaiting rebuild"
+    },
+    {
+      "id": "no-email-backend",
+      "severity": "critical",
+      "description": "Form submission logs to console, doesn't send emails",
+      "status": "not-started",
+      "estimate": "30 min",
+      "solution": "Integrate Formspree or SendGrid"
+    },
+    {
+      "id": "missing-pages",
+      "severity": "major",
+      "description": "3 of 6 pages not built (About, Privacy, Experience Detail)",
+      "status": "not-started",
+      "estimate": "2 hours"
+    },
+    {
+      "id": "unfilled-placeholders",
+      "severity": "major",
+      "description": "11 content placeholders (logo, images, contact info, testimonials)",
+      "status": "not-started",
+      "items": 11
+    }
+  ],
+  "progress": {
+    "overall_percent": 35,
+    "breakdown": {
+      "pages": "33%",
+      "features": "60%",
+      "design_system": "100%",
+      "content": "10%",
+      "deployment": "50%"
+    }
+  },
+  "next_actions": [
+    {
+      "action": "Verify Vercel deployment",
+      "priority": "1-critical",
+      "estimate": "5 min",
+      "status": "pending"
+    },
+    {
+      "action": "Wire form to Formspree or email service",
+      "priority": "1-critical",
+      "estimate": "30 min",
+      "status": "pending"
+    },
+    {
+      "action": "Fill critical placeholders (logo, WhatsApp, email)",
+      "priority": "2-high",
+      "estimate": "15 min",
+      "status": "pending"
+    },
+    {
+      "action": "Build missing pages (About, Privacy, Experience Detail)",
+      "priority": "2-high",
+      "estimate": "2 hours",
+      "status": "pending"
+    },
+    {
+      "action": "Add actual images to experience cards",
+      "priority": "3-medium",
+      "estimate": "1 hour",
+      "status": "blocked-by-content"
+    }
+  ],
+  "git": {
+    "commits": 4,
+    "branch": "main",
+    "recent_commits": [
+      "Fix: Correct Vercel SPA routing configuration with routes syntax",
+      "Fix: Add SPA routing configuration for Vercel deployment",
+      "Fix: Remove unused React import in App.tsx",
+      "Initial commit: Journey Within MVP - React, Tailwind, Form Validation"
+    ]
+  },
+  "ai_hints": {
+    "start_here": ["README.md", "STATUS.md", ".claude"],
+    "if_vercel_fails": [
+      "Check npm run build locally first",
+      "Review vercel.json for syntax errors",
+      "Look at Vercel build logs for specific errors",
+      "Verify dist/ directory exists with index.html"
+    ],
+    "if_form_fails": [
+      "Check EnquiryForm.tsx for submission logic",
+      "Verify Formspree endpoint is configured",
+      "Test form validation with browser console",
+      "Check network tab for failed requests"
+    ],
+    "quick_wins": [
+      "Use Formspree (free, no backend needed) for email",
+      "Use placeholder images from Lorem Picsum",
+      "Copy/paste Privacy Policy template",
+      "Create About page from company bio"
+    ]
+  }
+}

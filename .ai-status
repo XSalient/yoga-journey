@@ -1,0 +1,110 @@
+PROJECT STATUS — Journey Within MVP
+====================================
+
+SNAPSHOT (Last updated: 2024-07-18 22:55 UTC)
+============================================
+
+PROJECT STATUS:        In Progress (35% complete)
+DEPLOYMENT:            Rebuilding on Vercel (SPA routing fix)
+GITHUB:                ✅ 4 commits pushed
+REPOSITORY:            https://github.com/XSalient/yoga-journey
+LIVE URL:              https://yoga-journey.vercel.app/ (rebuilding)
+
+BUILD STATUS:          ✅ Local build succeeds
+                       🔄 Vercel rebuild in progress
+                       ❌ Site returns 404 (fixing now)
+
+PAGES BUILT:           2/6 (33%)
+  ✅ HomePage (9 sections)
+  ✅ PlanYourJourney (form)
+  ❌ Experiences List
+  ❌ Experience Detail
+  ❌ About
+  ⚠️ Privacy (stub only)
+
+COMPONENTS:            9/9 (100%) ✅
+  - Button, FormField, EnquiryForm
+  - Cards (4 types), Header, Footer
+
+DESIGN SYSTEM:         100% ✅
+  - All tokens in Tailwind config
+  - Colors, typography, spacing, shadows
+
+FEATURES:
+  ✅ Form validation (Zod + react-hook-form)
+  ✅ Responsive design (mobile-first Tailwind)
+  ✅ Navigation (client-side routing)
+  ❌ Form email submissions (logs to console)
+  ❌ Image uploads
+  ❌ Analytics
+
+CRITICAL BLOCKERS (Fix now):
+  1. Vercel 404 — SPA routing config (fix pushed, rebuilding)
+  2. Form no email — Need Formspree/SendGrid (30 min fix)
+  3. 11 placeholders unfilled — Logo, images, contact info
+
+QUICK STATS:
+  - Dependencies: 138 packages
+  - Build size: ~250KB (gzipped: 76KB)
+  - TypeScript errors: 0
+  - Test coverage: None
+  - Bundle analysis: Not done
+
+WHAT'S IN GIT:
+  ✅ src/ (all components & pages)
+  ✅ tailwind.config.ts (design tokens)
+  ✅ vercel.json (deployment config)
+  ✅ STATUS.md (detailed progress)
+  ✅ .claude (Claude context)
+  ✅ project.json (AI-readable metadata)
+  ✅ .gitignore, README.md, etc.
+
+TO FIX IMMEDIATELY:
+  1. Wait 3 min for Vercel rebuild to complete
+  2. Verify site loads at https://yoga-journey.vercel.app/
+  3. If still 404: Check Vercel build logs in dashboard
+
+TO BUILD NEXT (Priority Order):
+  1. Wire form to Formspree (30 min) — CRITICAL
+  2. Fill placeholders: logo, WhatsApp, email (15 min) — HIGH
+  3. Build About page (45 min) — HIGH
+  4. Build Experience Detail page (45 min) — HIGH
+  5. Build Privacy page (30 min) — MEDIUM
+  6. Add images (time depends on content)
+
+DEPENDENCIES TO KNOW:
+  - React 18.2.0
+  - TypeScript 5.2.2
+  - Vite 5.0.8 (build)
+  - Tailwind CSS 3.3.6
+  - Zod 3.22.4 (validation)
+  - react-hook-form 7.48.0
+  - @hookform/resolvers 3.3.4
+
+KEY FILES:
+  src/App.tsx               Router/main app
+  src/pages/HomePage.tsx    Main landing page
+  src/components/Button.tsx Button component (4 variants)
+  tailwind.config.ts        All design tokens
+  vercel.json              Deployment config (SPA routing)
+  STATUS.md                Detailed status
+  project.json             AI-readable metadata
+
+IF YOU'RE A NEW AI SESSION:
+  1. Read this file (.ai-status) — 2 min overview
+  2. Read STATUS.md — Full technical details
+  3. Read .claude — Claude-specific context
+  4. Check project.json — Structured data for parsing
+  5. Ask the user what to build next
+
+DECISION NEEDED FROM USER:
+  - Form backend: Formspree (free, recommended) or custom API?
+  - Timeline: When do you need stakeholder approval?
+  - Content: Can you provide images, company info, testimonials?
+  - Scope: Build all 6 pages, or minimum viable 3?
+
+LAST COMMITS:
+  4. Fix: Correct Vercel SPA routing configuration with routes syntax
+  3. Fix: Add SPA routing configuration for Vercel deployment
+  2. Fix: Remove unused React import in App.tsx
+  1. Initial commit: Journey Within MVP - React, Tailwind, Form Validation
