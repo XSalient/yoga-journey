@@ -5,6 +5,7 @@ import { FormField } from './FormField';
 import { Button } from './Button';
 import { enquiryFormSchema, type EnquiryFormData } from '@/lib/validation';
 import { useToast } from '@/context/ToastContext';
+import { trackEvent } from '@/hooks/useAnalytics';
 
 const TRAVEL_INTERESTS = [
   { value: 'bespoke-fit', label: 'Bespoke FIT' },
@@ -79,14 +80,24 @@ ${data.message}
       if (response.ok) {
         setSubmitStatus('success');
         methods.reset();
+        trackEvent('enquiry_submitted', {
+          travel_interest: data.travelInterest,
+          traveller_count: data.travellers,
+        });
         addToast('Your enquiry has been received! A specialist will contact you soon.', 'success');
       } else {
         setSubmitStatus('error');
+        trackEvent('enquiry_submission_failed', {
+          reason: 'api_error',
+        });
         addToast('Failed to submit enquiry. Please try again or contact us via WhatsApp.', 'error');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      trackEvent('enquiry_submission_error', {
+        reason: 'exception',
+      });
       addToast('An error occurred. Please try again or contact us via WhatsApp.', 'error');
     } finally {
       setIsSubmitting(false);

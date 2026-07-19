@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HomePage } from './pages/HomePage';
 import { PlanYourJourney } from './pages/PlanYourJourney';
 import { ExperienceDetail } from './pages/ExperienceDetail';
@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Privacy } from './pages/Privacy';
 import { ToastProvider } from './context/ToastContext';
 import { ToastContainer } from './components/Toast';
+import { useAnalytics, trackPageView } from './hooks/useAnalytics';
 import './styles/globals.css';
 
 type Page = 'home' | 'plan' | 'experiences' | 'about' | 'privacy';
@@ -17,6 +18,14 @@ interface PageState {
 
 function App() {
   const [pageState, setPageState] = useState<PageState>({ current: 'home' });
+  useAnalytics();
+
+  useEffect(() => {
+    const pageName = pageState.experienceSlug
+      ? `Experience - ${pageState.experienceSlug}`
+      : pageState.current;
+    trackPageView(pageName);
+  }, [pageState]);
 
   const handleNavigate = (page: Page, data?: Record<string, string>) => {
     setPageState({
