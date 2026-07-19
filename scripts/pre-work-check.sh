@@ -67,14 +67,14 @@ else
 fi
 echo ""
 
-# Check 4: Only 2 branches exist
+# Check 4: Only main branch exists
 echo "4️⃣  Checking branch count..."
 BRANCH_COUNT=$(git branch --list | wc -l)
-if [ "$BRANCH_COUNT" = "2" ]; then
-    echo -e "${GREEN}✅ PASS${NC}: Only 2 local branches (main + master)"
+if [ "$BRANCH_COUNT" = "1" ]; then
+    echo -e "${GREEN}✅ PASS${NC}: Only 1 local branch (main)"
     ((PASS++))
 else
-    echo -e "${YELLOW}⚠️  WARNING${NC}: You have $BRANCH_COUNT local branches (expected 2)"
+    echo -e "${RED}❌ FAIL${NC}: You have $BRANCH_COUNT local branches (expected 1: main only)"
     echo "   Extra branches should be deleted:"
     git branch --list
     echo "   To delete a branch: git branch -D branch-name"

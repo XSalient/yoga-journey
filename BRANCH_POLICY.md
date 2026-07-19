@@ -8,15 +8,15 @@
 
 ## ⚡ THE RULE
 
-### ✅ ACTIVE BRANCHES (Use These — 2 Only)
-- **`main`** ← **THE ONLY PRODUCTION BRANCH** — Work here, push here
-- **`master`** ← Backup mirror of main (do NOT edit)
+### ✅ ACTIVE BRANCH (Use This — 1 Only)
+- **`main`** ← **THE ONLY BRANCH** — Work here, push here, auto-deploys
 
 ### ❌ ALL OTHER BRANCHES (Delete These)
+- ❌ `master` (OBSOLETE — DELETE)
 - ❌ `claude/journey-within-mvp-340x2x` (OBSOLETE — DELETE)
 - ❌ `claude/journey-within-mvp-progress-gab0jy` (OBSOLETE — DELETE)
 - ❌ `claude/project-status-sync-check-x73294` (TEMPORARY — DELETE)
-- ❌ Any other branch not listed above (DELETE)
+- ❌ Any other branch not named `main` (DELETE)
 
 ---
 
@@ -73,25 +73,27 @@
 
 ## 📋 Branch Lifecycle
 
-### Birth
-- ❌ DON'T create branches manually
-- ✅ All work happens on `main`
+### One Branch, One Lifecycle
+- **Birth**: Only `main` exists
+- **Life**: All work happens on `main`
+- **Death**: `main` never dies — it's eternal
 
-### Life
-- Pull from `main`
-- Edit files
-- Commit to `main`
-- Push to `main`
-- Vercel auto-deploys
+### The Workflow
+1. Pull from `main`
+2. Edit files
+3. Commit to `main`
+4. Push to `main`
+5. Vercel auto-deploys from `main`
+6. Repeat
 
-### Death
-- ❌ Branches should NOT exist long-term
-- ❌ Branches should NOT have unmerged commits
-- If you accidentally created a branch:
-  ```bash
-  git push origin --delete branch-name     # Delete remote
-  git branch -D branch-name                # Delete local
-  ```
+### If You Accidentally Create A Branch
+```bash
+# Delete it immediately
+git checkout main                          # Switch back to main
+git branch -D accidental-branch-name       # Delete local
+git push origin --delete accidental-branch-name  # Delete remote
+# Then continue work on main
+```
 
 ---
 
@@ -222,15 +224,15 @@ A: NO. Work directly on `main`. No PRs. No feature branches.
 
 ## 📝 Branch Status
 
-### Active (Use These)
+### Active (Use This)
 | Branch | Purpose | Status |
 |--------|---------|--------|
-| `main` | Production code | ✅ IN USE |
-| `master` | Backup mirror | ✅ IN USE (read-only) |
+| `main` | Production code | ✅ ONLY BRANCH |
 
 ### Obsolete (Don't Use - Delete)
 | Branch | Status | Action |
 |--------|--------|--------|
+| `master` | ❌ REDUNDANT | DELETE (already deleted locally) |
 | `claude/journey-within-mvp-340x2x` | ❌ STALE | DELETE |
 | `claude/journey-within-mvp-progress-gab0jy` | ❌ MERGED | DELETE |
 | `claude/project-status-sync-check-x73294` | ❌ TEMP | DELETE |
@@ -241,13 +243,13 @@ A: NO. Work directly on `main`. No PRs. No feature branches.
 
 | Aspect | Rule |
 |--------|------|
-| How many branches? | **2 only** (main + master) |
+| How many branches? | **1 only** (main) |
 | Where to work? | **main only** |
-| How to create new work? | **Don't create branches** |
+| How to create new work? | **Work directly on main** |
 | How to deploy? | **Push to main** |
 | What about feature branches? | **No feature branches** |
 | What about PRs? | **No PRs** |
-| What about merging? | **Auto-merge to main only** |
+| What about master/dev/staging? | **No other branches** |
 | Can AI create branches? | **NO** |
 | What if AI creates branch? | **Delete immediately** |
 

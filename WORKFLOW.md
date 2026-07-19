@@ -2,16 +2,12 @@
 
 ## 📌 Single Source of Truth
 
-**`main` branch = PRODUCTION (Latest deployable code)**
+**`main` branch = PRODUCTION (Only Branch)**
+- **THE ONLY BRANCH** in this repository
 - Always contains the latest, tested, working code
 - Auto-deploys to Vercel on every push
-- All new work is merged here
+- All work happens here
 - URL: https://yoga-journey.vercel.app/
-
-**`master` branch = BACKUP (Mirrors main exactly)**
-- Synced with main (same commit always)
-- Emergency fallback if needed
-- Do NOT work on this branch
 
 ---
 
@@ -42,12 +38,12 @@ git push origin main
 ## 🌳 Branch Rules
 
 ### Active Branches:
-- **main** → Work here, deploy from here
-- **master** → Automatic mirror, do not edit
+- **main** ← **THE ONLY BRANCH** — Work here, deploy from here
 
-### Obsolete Branches (Ignore/Delete):
-- `claude/journey-within-mvp-340x2x` ❌ (outdated development branch)
-- `claude/journey-within-mvp-progress-gab0jy` ❌ (merged, archive only)
+### Obsolete Branches (Delete):
+- ❌ `master` (redundant backup)
+- ❌ `claude/journey-within-mvp-340x2x` (outdated development branch)
+- ❌ `claude/journey-within-mvp-progress-gab0jy` (merged, archive only)
 
 ---
 
@@ -59,10 +55,8 @@ git checkout main
 git pull origin main
 git status  # Should show "nothing to commit, working tree clean"
 
-# Verify main and master are identical
-git log --oneline main -1
-git log --oneline master -1
-# Both should show same commit hash
+# Verify you're on main
+git branch  # Should show: * main (nothing else)
 ```
 
 **If you're on any device:**
@@ -83,35 +77,19 @@ GitHub receives commit
 Vercel auto-deploys
        ↓
 https://yoga-journey.vercel.app/ updates (30-60 seconds)
-       ↓
-master syncs with main (if CI/CD enabled)
 ```
 
 ---
 
-## 📋 What's in Each Branch Right Now?
+## 📋 What's in main Right Now?
 
-### ✅ main (defbd77)
+### ✅ main (Latest)
 - All 6 pages built and working
 - Form email integrated (Simple Forms API)
 - SPA routing working
 - Responsive design
 - 100% MVP complete
-
-### ✅ master (defbd77)
-- Same as main (backup)
-
-### ❌ claude/journey-within-mvp-340x2x (408d9ea)
-- Outdated development branch
-- **IGNORE THIS BRANCH**
-- Only contains initial work + author fix
-- **Should be deleted**
-
-### ❌ claude/journey-within-mvp-progress-gab0jy (d088cfb)
-- Old development branch with MVP completion
-- **IGNORE THIS BRANCH**
-- Already merged into main
-- **Archive only**
+- **THIS IS THE ONLY BRANCH**
 
 ---
 
@@ -179,12 +157,11 @@ git status
 ## 📝 Current Status Summary
 
 - **Main branch**: ✅ Production-ready, all 6 pages working
-- **Master branch**: ✅ Synced with main
-- **Development branches**: ❌ Obsolete (should be deleted)
+- **Other branches**: ❌ None (main only)
 - **Vercel deployment**: ✅ Auto-deploys from main
-- **Last push**: defbd77 (Update tracker files: MVP complete)
 - **Build time**: 1.61s
 - **Bundle size**: 279.64 KB JS + 18.18 KB CSS
+- **Status**: ✅ MVP Complete, ONE BRANCH ONLY
 
 ---
 

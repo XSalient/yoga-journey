@@ -9,14 +9,15 @@
 
 ### Remote Branches (Still Exist — Need Deletion)
 ```
+❌ origin/master                                   (REDUNDANT — DELETE)
 ❌ origin/claude/journey-within-mvp-340x2x        (STALE — DELETE)
 ❌ origin/claude/journey-within-mvp-progress-gab... (MERGED — DELETE)
+❌ origin/claude/project-status-sync-check-x73294 (TEMPORARY — DELETE)
 ```
 
 ### Local Branches (Already Cleaned)
 ```
-✅ main (active)
-✅ master (backup)
+✅ main (active - only branch)
 ```
 
 ---
@@ -39,15 +40,19 @@ fatal: the remote end hung up unexpectedly
 
 1. Go to: https://github.com/XSalient/yoga-journey
 2. Click: **Branches** (top navigation)
-3. Find: `claude/journey-within-mvp-340x2x`
-4. Click: **Delete** (trash icon) on the right
-5. Repeat for: `claude/journey-within-mvp-progress-gab0jy`
+3. Delete these branches by clicking the trash icon:
+   - `master` (redundant backup)
+   - `claude/journey-within-mvp-340x2x` (stale)
+   - `claude/journey-within-mvp-progress-gab0jy` (merged)
+   - `claude/project-status-sync-check-x73294` (temp)
 
 ### Option 2: Use GitHub CLI (If Available)
 
 ```bash
+gh repo delete-branch master
 gh repo delete-branch claude/journey-within-mvp-340x2x
 gh repo delete-branch claude/journey-within-mvp-progress-gab0jy
+gh repo delete-branch claude/project-status-sync-check-x73294
 ```
 
 ### Option 3: Repository Settings
@@ -88,10 +93,12 @@ master                   (Backup)
 
 ## 📋 Checklist for Admin
 
-- [ ] Delete `origin/claude/journey-within-mvp-340x2x` via GitHub UI or CLI
-- [ ] Delete `origin/claude/journey-within-mvp-progress-gab0jy` via GitHub UI or CLI
-- [ ] Verify only 2 remote branches remain (main + master)
-- [ ] Confirm: `git branch -a` shows only main and master
+- [ ] Delete `origin/master` via GitHub UI or CLI (redundant)
+- [ ] Delete `origin/claude/journey-within-mvp-340x2x` via GitHub UI or CLI (stale)
+- [ ] Delete `origin/claude/journey-within-mvp-progress-gab0jy` via GitHub UI or CLI (merged)
+- [ ] Delete `origin/claude/project-status-sync-check-x73294` via GitHub UI or CLI (temp)
+- [ ] Verify only 1 remote branch remains (main only)
+- [ ] Confirm: `git branch -a` shows only `main`
 
 ---
 
@@ -123,13 +130,14 @@ Once admin deletes remote branches, **EVERYTHING will be clean**.
 ## 🎯 Final State (After Admin Cleanup)
 
 ```
-Branches:        2 only (main + master)
-Local:           main, master ✅
-Remote:          main, master ✅
+Branches:        1 only (main)
+Local:           main ✅
+Remote:          main ✅
 Obsolete:        None ✅
 Branch Policy:   Enforced ✅
 Pre-Work Check:  Automated ✅
 AI-Ready:        Yes ✅
+Single Source:   TRUE ✅
 ```
 
 ---
