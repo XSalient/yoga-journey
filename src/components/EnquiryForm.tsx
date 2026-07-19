@@ -48,9 +48,38 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({ prefillExperience }) =
     setSubmitStatus('idle');
 
     try {
-      console.log('Form data:', data);
-      setSubmitStatus('success');
-      methods.reset();
+      const response = await fetch('https://api.staticforms.dev/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          apiKey: 'sf_0ed457b75e0880a32dd6e972',
+          email: data.email,
+          subject: `New Journey Enquiry from ${data.fullName}`,
+          message: `
+Name: ${data.fullName}
+Email: ${data.email}
+Country: ${data.country}
+Travel Interest: ${data.travelInterest}
+Number of Travellers: ${data.travellers}
+WhatsApp: ${data.whatsapp || 'Not provided'}
+Travel Dates: ${data.travelDates || 'Not provided'}
+Duration: ${data.duration || 'Not provided'}
+Budget: ${data.budget || 'Not provided'}
+
+Message:
+${data.message}
+          `.trim(),
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        methods.reset();
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');

@@ -1,30 +1,46 @@
 import { useState } from 'react';
 import { HomePage } from './pages/HomePage';
 import { PlanYourJourney } from './pages/PlanYourJourney';
+import { ExperienceDetail } from './pages/ExperienceDetail';
+import { About } from './pages/About';
+import { Privacy } from './pages/Privacy';
 import './styles/globals.css';
 
 type Page = 'home' | 'plan' | 'experiences' | 'about' | 'privacy';
 
+interface PageState {
+  current: Page;
+  experienceSlug?: string;
+}
+
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [pageState, setPageState] = useState<PageState>({ current: 'home' });
+
+  const handleNavigate = (page: Page, data?: Record<string, string>) => {
+    setPageState({
+      current: page,
+      experienceSlug: data?.experience || pageState.experienceSlug,
+    });
+    window.scrollTo(0, 0);
+  };
 
   const renderPage = () => {
-    switch (currentPage) {
+    switch (pageState.current) {
       case 'plan':
-        return <PlanYourJourney />;
-      case 'privacy':
+        return <PlanYourJourney onNavigate={handleNavigate} />;
+      case 'experiences':
         return (
-          <>
-            <div className="min-h-screen bg-white">
-              <div className="container-max py-24">
-                <h1 className="text-h1 font-serif font-semibold mb-8">Privacy Policy</h1>
-                <p className="text-body mb-4">[PRIVACY POLICY CONTENT REQUIRED]</p>
-              </div>
-            </div>
-          </>
+          <ExperienceDetail
+            slug={pageState.experienceSlug}
+            onNavigate={handleNavigate}
+          />
         );
+      case 'about':
+        return <About onNavigate={handleNavigate} />;
+      case 'privacy':
+        return <Privacy />;
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={handleNavigate} />;
     }
   };
 
@@ -36,9 +52,15 @@ function App() {
           const href = target.getAttribute('href');
           if (href?.startsWith('/')) {
             e.preventDefault();
-            const page = href.slice(1) || 'home';
-            setCurrentPage(page as Page);
-            window.scrollTo(0, 0);
+            const path = href.slice(1) || 'home';
+            const [page, ...params] = path.split('/');
+            const slug = params.join('/');
+
+            if (page === 'experiences' && slug) {
+              handleNavigate('experiences', { experience: slug });
+            } else {
+              handleNavigate(page as Page);
+            }
           }
         }
       }}
