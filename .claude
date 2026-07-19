@@ -1,8 +1,8 @@
 ---
 project: Journey Within
 tagline: Bespoke yoga, wellness, cultural & adventure journeys. Curated travel planning.
-status: ✅ MVP COMPLETE — All features built and deployed
-updated: 2026-07-19
+status: ✅ MVP + ENHANCEMENTS DEPLOYED — All core features and UX improvements live
+updated: 2026-07-19 (19:30 UTC)
 ---
 
 ## Quick Context (for any Claude session)
@@ -35,7 +35,7 @@ updated: 2026-07-19
 5. ✅ Privacy - Full 14-section legal privacy policy
 6. ✅ Layout - Header and Footer with navigation
 
-**Features Implemented**
+**Features Implemented - MVP**
 - ✅ Form validation (Zod + react-hook-form)
 - ✅ Responsive design (mobile-first Tailwind)
 - ✅ SPA navigation (client-side routing, no page reloads)
@@ -44,6 +44,11 @@ updated: 2026-07-19
 - ✅ 6 journey types defined in data/experiences.ts
 - ✅ TypeScript strict mode (zero errors)
 - ✅ Vercel deployment (auto from GitHub)
+
+**Features Implemented - Enhancements (NOW LIVE)**
+- ✅ Mobile hamburger menu (responsive navigation)
+- ✅ SEO meta tags (optimized for search visibility)
+- ✅ Toast notifications (form feedback with animations)
 
 **Files to Know**
 - `STATUS.md` — Detailed project status, features, blockers
