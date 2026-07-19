@@ -5,7 +5,11 @@ import { ExperienceCard, ServiceModeCard, BenefitCard, TestimonialCard } from '@
 import { experiences } from '@/data/experiences';
 import { benefits, processSteps, testimonials, travelModes, trustIndicators } from '@/data';
 
-export const HomePage: React.FC = () => (
+interface HomePageProps {
+  onNavigate?: (page: string, data?: Record<string, string>) => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => (
   <>
     <Header />
 
@@ -20,10 +24,10 @@ export const HomePage: React.FC = () => (
           Thoughtfully curated journeys across wellness, spirituality, culture and adventure—designed around how you want to explore, connect and experience the world.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" onClick={() => onNavigate?.('plan')}>
             Plan My Journey
           </Button>
-          <Button variant="secondary" size="lg">
+          <Button variant="secondary" size="lg" onClick={() => onNavigate?.('experiences')}>
             Explore Experiences
           </Button>
         </div>
@@ -143,7 +147,12 @@ export const HomePage: React.FC = () => (
           Tell us what you have in mind. A Journey Within travel specialist will review your request and contact you to discuss the next step.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
-          <Button variant="primary" size="lg" className="!bg-white !text-forest-500 hover:!bg-gray-100">
+          <Button
+            variant="primary"
+            size="lg"
+            className="!bg-white !text-forest-500 hover:!bg-gray-100"
+            onClick={() => onNavigate?.('plan')}
+          >
             Plan My Journey
           </Button>
           <a href="https://wa.me/[WHATSAPP_NUMBER]" target="_blank" rel="noopener noreferrer">

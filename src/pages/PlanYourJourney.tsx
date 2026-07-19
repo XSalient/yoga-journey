@@ -2,7 +2,11 @@ import React from 'react';
 import { Header, Footer } from '@/components/Layout';
 import { EnquiryForm } from '@/components/EnquiryForm';
 
-export const PlanYourJourney: React.FC = () => (
+interface PlanYourJourneyProps {
+  onNavigate?: (page: string, data?: Record<string, string>) => void;
+}
+
+export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) => (
   <>
     <Header />
 
