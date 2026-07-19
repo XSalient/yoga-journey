@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
+import logoImage from '@/assets/yoga-within-logo.png';
 
 const MenuIcon = () => (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,7 +29,7 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container-max flex items-center justify-between py-4">
         <a href="/" className="flex items-center gap-2">
-          <img src="/yoga-within-logo.png" alt="Yoga Within" className="h-12 w-auto" />
+          <img src={logoImage} alt="Yoga Within" className="h-12 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
@@ -112,7 +113,7 @@ export const Footer: React.FC = () => (
       <div className="grid md:grid-cols-4 gap-8 mb-8">
         <div>
           <a href="/" className="inline-block mb-2">
-            <img src="/yoga-within-logo.png" alt="Yoga Within" className="h-12 w-auto brightness-200" />
+            <img src={logoImage} alt="Yoga Within" className="h-12 w-auto brightness-200" />
           </a>
           <p className="text-body-sm text-gray-300">Discover inner peace through authentic yoga experiences.</p>
         </div>
