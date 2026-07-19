@@ -4,6 +4,8 @@ import { PlanYourJourney } from './pages/PlanYourJourney';
 import { ExperienceDetail } from './pages/ExperienceDetail';
 import { About } from './pages/About';
 import { Privacy } from './pages/Privacy';
+import { ToastProvider } from './context/ToastContext';
+import { ToastContainer } from './components/Toast';
 import './styles/globals.css';
 
 type Page = 'home' | 'plan' | 'experiences' | 'about' | 'privacy';
@@ -45,28 +47,31 @@ function App() {
   };
 
   return (
-    <div
-      onClick={(e) => {
-        const target = e.target as HTMLElement;
-        if (target.tagName === 'A') {
-          const href = target.getAttribute('href');
-          if (href?.startsWith('/')) {
-            e.preventDefault();
-            const path = href.slice(1) || 'home';
-            const [page, ...params] = path.split('/');
-            const slug = params.join('/');
+    <ToastProvider>
+      <div
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.tagName === 'A') {
+            const href = target.getAttribute('href');
+            if (href?.startsWith('/')) {
+              e.preventDefault();
+              const path = href.slice(1) || 'home';
+              const [page, ...params] = path.split('/');
+              const slug = params.join('/');
 
-            if (page === 'experiences' && slug) {
-              handleNavigate('experiences', { experience: slug });
-            } else {
-              handleNavigate(page as Page);
+              if (page === 'experiences' && slug) {
+                handleNavigate('experiences', { experience: slug });
+              } else {
+                handleNavigate(page as Page);
+              }
             }
           }
-        }
-      }}
-    >
-      {renderPage()}
-    </div>
+        }}
+      >
+        {renderPage()}
+        <ToastContainer />
+      </div>
+    </ToastProvider>
   );
 }
 

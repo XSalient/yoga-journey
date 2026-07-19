@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FormField } from './FormField';
 import { Button } from './Button';
 import { enquiryFormSchema, type EnquiryFormData } from '@/lib/validation';
+import { useToast } from '@/context/ToastContext';
 
 const TRAVEL_INTERESTS = [
   { value: 'bespoke-fit', label: 'Bespoke FIT' },
@@ -35,6 +36,7 @@ interface EnquiryFormProps {
 export const EnquiryForm: React.FC<EnquiryFormProps> = ({ prefillExperience }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const { addToast } = useToast();
 
   const methods = useForm<EnquiryFormData>({
     resolver: zodResolver(enquiryFormSchema),
@@ -77,12 +79,15 @@ ${data.message}
       if (response.ok) {
         setSubmitStatus('success');
         methods.reset();
+        addToast('Your enquiry has been received! A specialist will contact you soon.', 'success');
       } else {
         setSubmitStatus('error');
+        addToast('Failed to submit enquiry. Please try again or contact us via WhatsApp.', 'error');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      addToast('An error occurred. Please try again or contact us via WhatsApp.', 'error');
     } finally {
       setIsSubmitting(false);
     }
