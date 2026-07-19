@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-bg-primary text-text-primary;
+  }
+  
+  body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold;
+  }
+
+  h1 { @apply text-h1; }
+  h2 { @apply text-h2; }
+  h3 { @apply text-h3; }
+
+  a {
+    @apply text-inherit transition-colors;
+  }
+
+  button {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+}
+
+@layer components {
+  .container-max {
+    @apply max-w-container mx-auto px-lg;
+  }
+
+  .btn-primary {
+    @apply px-7 py-3 bg-forest-500 text-white font-semibold rounded-md hover:bg-forest-600 transition-colors focus:ring-forest-500;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-terra-500 text-terra-500 font-semibold rounded-md hover:bg-terra-500 hover:text-white transition-colors;
+  }
+
+  .btn-whatsapp {
+    @apply px-6 py-3 bg-[#25D366] text-white font-semibold rounded-md hover:bg-[#1ea957] transition-colors inline-flex items-center gap-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
