@@ -1,32 +1,108 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './Button';
 
-export const Header: React.FC = () => (
-  <header className="sticky top-0 z-50 bg-white shadow-sm">
-    <div className="container-max flex items-center justify-between py-4">
-      <div className="text-h3 font-serif font-bold text-forest-500">[LOGO]</div>
-      <nav className="hidden md:flex gap-8 items-center">
-        <a href="/" className="text-body hover:text-terra-500 transition-colors">
-          Home
-        </a>
-        <a href="/experiences" className="text-body hover:text-terra-500 transition-colors">
-          Experiences
-        </a>
-        <a href="/about" className="text-body hover:text-terra-500 transition-colors">
-          About
-        </a>
-        <Button variant="primary" size="sm">
-          <a href="/plan-your-journey">Plan My Journey</a>
-        </Button>
-      </nav>
-      <a href="https://wa.me/[WHATSAPP_NUMBER]" target="_blank" rel="noopener noreferrer" className="md:hidden">
-        <Button variant="whatsapp" size="sm">
-          WhatsApp
-        </Button>
-      </a>
-    </div>
-  </header>
+const MenuIcon = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
 );
+
+const CloseIcon = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
+export const Header: React.FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  return (
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="container-max flex items-center justify-between py-4">
+        <div className="text-h3 font-serif font-bold text-forest-500">[LOGO]</div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex gap-8 items-center">
+          <a href="/" className="text-body hover:text-terra-500 transition-colors">
+            Home
+          </a>
+          <a href="/experiences" className="text-body hover:text-terra-500 transition-colors">
+            Experiences
+          </a>
+          <a href="/about" className="text-body hover:text-terra-500 transition-colors">
+            About
+          </a>
+          <Button variant="primary" size="sm">
+            <a href="/plan-your-journey">Plan My Journey</a>
+          </Button>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleMenu}
+            className="text-forest-500 hover:text-terra-500 transition-colors p-2"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <nav className="md:hidden bg-white border-t border-gray-200">
+          <div className="container-max py-4 flex flex-col gap-4">
+            <a
+              href="/"
+              className="text-body hover:text-terra-500 transition-colors block"
+              onClick={closeMenu}
+            >
+              Home
+            </a>
+            <a
+              href="/experiences"
+              className="text-body hover:text-terra-500 transition-colors block"
+              onClick={closeMenu}
+            >
+              Experiences
+            </a>
+            <a
+              href="/about"
+              className="text-body hover:text-terra-500 transition-colors block"
+              onClick={closeMenu}
+            >
+              About
+            </a>
+            <Button variant="primary" size="sm" fullWidth>
+              <a href="/plan-your-journey" onClick={closeMenu} className="block">
+                Plan My Journey
+              </a>
+            </Button>
+            <a
+              href="https://wa.me/[WHATSAPP_NUMBER]"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
+              <Button variant="whatsapp" size="sm" fullWidth>
+                WhatsApp
+              </Button>
+            </a>
+          </div>
+        </nav>
+      )}
+    </header>
+  );
+};
 
 export const Footer: React.FC = () => (
   <footer className="bg-gray-900 text-white py-16">
