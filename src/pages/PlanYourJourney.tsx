@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Footer } from '@/components/Layout';
 import { EnquiryForm } from '@/components/EnquiryForm';
+import { setSEOMeta } from '@/lib/seo';
 
 interface PlanYourJourneyProps {
   onNavigate?: (page: string, data?: Record<string, string>) => void;
 }
 
-export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) => (
+export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) => {
+  useEffect(() => {
+    setSEOMeta({
+      title: 'Plan Your Journey | Journey Within',
+      description: 'Share your travel interests with our specialists. Plan your perfect yoga, wellness, or cultural journey with expert guidance and personalized recommendations.',
+      keywords: 'journey planning, travel consultation, wellness travel, yoga retreats, cultural tours',
+    });
+  }, []);
+
+  return (
   <>
     <Header />
 
@@ -27,4 +37,5 @@ export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) 
 
     <Footer />
   </>
-);
+  );
+};

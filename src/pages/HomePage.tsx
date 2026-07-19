@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Footer } from '@/components/Layout';
 import { Button } from '@/components/Button';
 import { ExperienceCard, ServiceModeCard, BenefitCard, TestimonialCard } from '@/components/Cards';
 import { experiences } from '@/data/experiences';
 import { benefits, processSteps, testimonials, travelModes, trustIndicators } from '@/data';
+import { setSEOMeta } from '@/lib/seo';
 
 interface HomePageProps {
   onNavigate?: (page: string, data?: Record<string, string>) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => (
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  useEffect(() => {
+    setSEOMeta({
+      title: 'Journey Within | Bespoke Yoga, Wellness & Adventure Travel',
+      description: 'Journey Within — Curated yoga, wellness, cultural, and adventure journeys for transformation. 25+ years of crafting extraordinary travel experiences.',
+      keywords: 'yoga retreats, wellness travel, adventure journeys, travel packages, spiritual retreat, yoga holidays',
+    });
+  }, []);
+
+  return (
   <>
     <Header />
 
@@ -166,4 +176,5 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => (
 
     <Footer />
   </>
-);
+  );
+};

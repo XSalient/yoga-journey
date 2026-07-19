@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Footer } from '@/components/Layout';
 import { Button } from '@/components/Button';
 import { experiences, getExperienceBySlug } from '@/data/experiences';
+import { setSEOMeta } from '@/lib/seo';
 
 interface ExperienceDetailProps {
   slug?: string;
@@ -10,6 +11,16 @@ interface ExperienceDetailProps {
 
 export const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ slug = 'yoga-spiritual-retreats', onNavigate }) => {
   const experience = getExperienceBySlug(slug);
+
+  useEffect(() => {
+    if (experience) {
+      setSEOMeta({
+        title: `${experience.title} | Journey Within`,
+        description: experience.description,
+        keywords: `${experience.title}, ${experience.category}, ${experience.tags.join(', ')}, wellness travel, adventure`,
+      });
+    }
+  }, [experience]);
 
   if (!experience) {
     return (

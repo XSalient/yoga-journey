@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Footer } from '@/components/Layout';
 import { Button } from '@/components/Button';
+import { setSEOMeta } from '@/lib/seo';
 
 interface AboutProps {
   onNavigate?: (page: string) => void;
 }
 
 export const About: React.FC<AboutProps> = ({ onNavigate }) => {
+  useEffect(() => {
+    setSEOMeta({
+      title: 'About Journey Within | 25+ Years of Travel Expertise',
+      description: 'Discover our story. For over 25 years, Journey Within has been crafting transformative yoga, wellness, and adventure journeys. Learn about our values, team, and commitment to meaningful travel.',
+      keywords: 'about journey within, yoga travel company, wellness retreats, adventure travel, sustainable tourism',
+    });
+  }, []);
+
   return (
     <>
       <Header />

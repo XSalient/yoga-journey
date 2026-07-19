@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Footer } from '@/components/Layout';
+import { setSEOMeta } from '@/lib/seo';
 
 export const Privacy: React.FC = () => {
+  useEffect(() => {
+    setSEOMeta({
+      title: 'Privacy Policy | Journey Within',
+      description: 'Journey Within Privacy Policy. Learn how we collect, use, and protect your personal information when you plan your wellness and adventure journeys with us.',
+      keywords: 'privacy policy, data protection, personal information, GDPR',
+    });
+  }, []);
+
   return (
     <>
       <Header />
