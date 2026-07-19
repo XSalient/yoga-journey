@@ -34,14 +34,22 @@ fatal: the remote end hung up unexpectedly
 
 ---
 
-## ✅ What Needs To Be Done (Admin Action)
+## ✅ What Needs To Be Done
 
-### Option 1: Use GitHub Web UI (Easiest)
+### STEP 1: Change Default Branch (Anyone Can Do - DO THIS FIRST)
 
-1. Go to: https://github.com/XSalient/yoga-journey
-2. Click: **Branches** (top navigation)
-3. Delete these branches by clicking the trash icon:
-   - `master` (redundant backup)
+1. Go to: https://github.com/XSalient/yoga-journey/settings
+2. Find: **Default Branch** section
+3. Change from: `master` → `main`
+4. Click: **Update** or **Save**
+
+**Why:** Must change default BEFORE deleting master, or GitHub won't let you delete it.
+
+### STEP 2: Delete Remote Branches (Admin Only - DO THIS AFTER)
+
+1. Go to: https://github.com/XSalient/yoga-journey/branches
+2. Delete these branches by clicking the trash icon:
+   - `master` (now safe to delete, no longer default)
    - `claude/journey-within-mvp-340x2x` (stale)
    - `claude/journey-within-mvp-progress-gab0jy` (merged)
    - `claude/project-status-sync-check-x73294` (temp)
@@ -91,13 +99,22 @@ master                   (Backup)
 
 ---
 
-## 📋 Checklist for Admin
+## 📋 Cleanup Checklist (In Order)
 
-- [ ] Delete `origin/master` via GitHub UI or CLI (redundant)
-- [ ] Delete `origin/claude/journey-within-mvp-340x2x` via GitHub UI or CLI (stale)
-- [ ] Delete `origin/claude/journey-within-mvp-progress-gab0jy` via GitHub UI or CLI (merged)
-- [ ] Delete `origin/claude/project-status-sync-check-x73294` via GitHub UI or CLI (temp)
-- [ ] Verify only 1 remote branch remains (main only)
+### STEP 1: Change Default Branch (Do First - Anyone)
+- [ ] Go to repo settings: https://github.com/XSalient/yoga-journey/settings
+- [ ] Change Default Branch: `master` → `main`
+- [ ] Save/Update
+
+### STEP 2: Delete Remote Branches (Do Second - Admin)
+- [ ] Delete `origin/master` (now safe, not default)
+- [ ] Delete `origin/claude/journey-within-mvp-340x2x`
+- [ ] Delete `origin/claude/journey-within-mvp-progress-gab0jy`
+- [ ] Delete `origin/claude/project-status-sync-check-x73294`
+
+### STEP 3: Verify (Anyone)
+- [ ] Go to Branches page: https://github.com/XSalient/yoga-journey/branches
+- [ ] Only `main` appears
 - [ ] Confirm: `git branch -a` shows only `main`
 
 ---
