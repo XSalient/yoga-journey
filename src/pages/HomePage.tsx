@@ -13,8 +13,8 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   useEffect(() => {
     setSEOMeta({
-      title: 'Journey Within | Bespoke Yoga, Wellness & Adventure Travel',
-      description: 'Journey Within — Curated yoga, wellness, cultural, and adventure journeys for transformation. 25+ years of crafting extraordinary travel experiences.',
+      title: 'Yoga Within | Bespoke Yoga, Wellness & Adventure Travel',
+      description: 'Yoga Within — Curated yoga, wellness, cultural, and adventure journeys for transformation. 25+ years of crafting extraordinary travel experiences.',
       keywords: 'yoga retreats, wellness travel, adventure journeys, travel packages, spiritual retreat, yoga holidays',
     });
   }, []);
@@ -67,7 +67,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="flex-1">
           <h2 className="text-h1 font-serif font-semibold mb-4">Travel That Begins With You</h2>
           <p className="text-body mb-6 max-w-md">
-            Journey Within creates meaningful travel experiences for individuals, private groups and organisations. Each journey is shaped through personal consultation, careful planning and dependable on-ground coordination.
+            Yoga Within creates meaningful travel experiences for individuals, private groups and organisations. Each journey is shaped through personal consultation, careful planning and dependable on-ground coordination.
           </p>
           <a href="#" className="text-forest-500 font-semibold hover:text-terra-500">
             Discover Our Approach →
@@ -106,7 +106,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     {/* Benefits */}
     <section className="py-24">
       <div className="container-max">
-        <h2 className="text-h1 font-serif font-semibold mb-12">Why Travel With Journey Within</h2>
+        <h2 className="text-h1 font-serif font-semibold mb-12">Why Travel With Yoga Within</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div />
           <div className="grid gap-8">
@@ -154,7 +154,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <div className="container-max text-center">
         <h2 className="text-h1 font-serif font-semibold mb-4">What Kind of Journey Are You Looking For?</h2>
         <p className="text-body mb-8 max-w-2xl mx-auto">
-          Tell us what you have in mind. A Journey Within travel specialist will review your request and contact you to discuss the next step.
+          Tell us what you have in mind. A Yoga Within travel specialist will review your request and contact you to discuss the next step.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           <Button

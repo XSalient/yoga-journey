@@ -17,7 +17,7 @@ export const benefits = [
   },
   {
     title: 'Flexible Travel Formats',
-    description: 'Journey Within supports private travellers, curated groups and corporate programmes.',
+    description: 'Yoga Within supports private travellers, curated groups and corporate programmes.',
   },
 ];
 

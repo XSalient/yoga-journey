@@ -10,7 +10,7 @@ interface PlanYourJourneyProps {
 export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) => {
   useEffect(() => {
     setSEOMeta({
-      title: 'Plan Your Journey | Journey Within',
+      title: 'Plan Your Journey | Yoga Within',
       description: 'Share your travel interests with our specialists. Plan your perfect yoga, wellness, or cultural journey with expert guidance and personalized recommendations.',
       keywords: 'journey planning, travel consultation, wellness travel, yoga retreats, cultural tours',
     });
@@ -24,7 +24,7 @@ export const PlanYourJourney: React.FC<PlanYourJourneyProps> = ({ onNavigate }) 
       <div className="container-max text-center">
         <h1 className="text-h1 font-serif font-semibold mb-4">Plan Your Journey</h1>
         <p className="text-body text-text-muted max-w-2xl mx-auto">
-          Share what you're looking for. A Journey Within specialist will review your interests and contact you to discuss the next step.
+          Share what you're looking for. A Yoga Within specialist will review your interests and contact you to discuss the next step.
         </p>
       </div>
     </section>

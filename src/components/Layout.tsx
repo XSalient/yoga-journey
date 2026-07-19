@@ -27,7 +27,9 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container-max flex items-center justify-between py-4">
-        <div className="text-h3 font-serif font-bold text-forest-500">[LOGO]</div>
+        <a href="/" className="flex items-center gap-2">
+          <img src="/yoga-within-logo.png" alt="Yoga Within" className="h-12 w-auto" />
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 items-center">
@@ -109,8 +111,10 @@ export const Footer: React.FC = () => (
     <div className="container-max">
       <div className="grid md:grid-cols-4 gap-8 mb-8">
         <div>
-          <div className="text-h3 font-serif font-bold mb-2">[LOGO]</div>
-          <p className="text-body-sm text-gray-300">25+ years of crafting extraordinary journeys.</p>
+          <a href="/" className="inline-block mb-2">
+            <img src="/yoga-within-logo.png" alt="Yoga Within" className="h-12 w-auto brightness-200" />
+          </a>
+          <p className="text-body-sm text-gray-300">Discover inner peace through authentic yoga experiences.</p>
         </div>
         <div>
           <h4 className="text-body font-semibold mb-4">Navigate</h4>

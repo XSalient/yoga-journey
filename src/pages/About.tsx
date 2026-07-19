@@ -10,8 +10,8 @@ interface AboutProps {
 export const About: React.FC<AboutProps> = ({ onNavigate }) => {
   useEffect(() => {
     setSEOMeta({
-      title: 'About Journey Within | 25+ Years of Travel Expertise',
-      description: 'Discover our story. For over 25 years, Journey Within has been crafting transformative yoga, wellness, and adventure journeys. Learn about our values, team, and commitment to meaningful travel.',
+      title: 'About Yoga Within | 25+ Years of Travel Expertise',
+      description: 'Discover our story. For over 25 years, Yoga Within has been crafting transformative yoga, wellness, and adventure journeys. Learn about our values, team, and commitment to meaningful travel.',
       keywords: 'about journey within, yoga travel company, wellness retreats, adventure travel, sustainable tourism',
     });
   }, []);
@@ -24,7 +24,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate }) => {
         <div className="bg-gradient-to-b from-forest-50 to-white py-16 sm:py-24">
           <div className="container-max">
             <div className="max-w-3xl">
-              <h1 className="text-h1 font-serif text-text-primary mb-6">About Journey Within</h1>
+              <h1 className="text-h1 font-serif text-text-primary mb-6">About Yoga Within</h1>
               <p className="text-h3 text-text-muted">
                 Crafting meaningful travel experiences that transform how you see the world—and yourself.
               </p>
@@ -40,7 +40,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <h2 className="text-h2 font-serif text-text-primary mb-6">Our Story</h2>
                 <div className="space-y-4 text-body text-text-muted">
                   <p>
-                    Journey Within was founded on a simple belief: travel should feed the soul, not just the camera roll. With over 25 years of experience designing extraordinary journeys, we've learned that the best trips happen when intention meets authenticity.
+                    Yoga Within was founded on a simple belief: travel should feed the soul, not just the camera roll. With over 25 years of experience designing extraordinary journeys, we've learned that the best trips happen when intention meets authenticity.
                   </p>
                   <p>
                     We work with small groups, local guides, and vetted partners who share our values. Every itinerary is designed to balance structure with spontaneity, comfort with challenge, and exploration with reflection.
@@ -152,7 +152,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <div className="w-24 h-24 bg-sage-200 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-4xl">👥</span>
                 </div>
-                <h3 className="text-h3 font-serif text-text-primary mb-2">Our Journey Within Team</h3>
+                <h3 className="text-h3 font-serif text-text-primary mb-2">Our Yoga Within Team</h3>
                 <p className="text-body text-text-muted mb-6">
                   Guides, designers, and hospitality experts dedicated to crafting your perfect journey.
                 </p>
@@ -168,7 +168,7 @@ export const About: React.FC<AboutProps> = ({ onNavigate }) => {
         <div className="bg-forest-600 text-white py-16 sm:py-24">
           <div className="container-max">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-h2 font-serif mb-6">Ready to Journey Within?</h2>
+              <h2 className="text-h2 font-serif mb-6">Ready to Yoga Within?</h2>
               <p className="text-white text-body mb-8 opacity-90">
                 Let's create a journey tailored to you—one that nourishes your spirit and expands your perspective.
               </p>

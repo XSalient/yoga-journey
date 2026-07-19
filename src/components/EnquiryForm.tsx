@@ -110,7 +110,7 @@ ${data.message}
         <div className="mb-8 p-6 rounded-md bg-green-50 border-l-4 border-success">
           <h3 className="text-h3 text-success mb-2">Thank You</h3>
           <p className="text-body text-success">
-            Your journey enquiry has been received. A Journey Within representative will contact you after reviewing your request.
+            Your journey enquiry has been received. A Yoga Within representative will contact you after reviewing your request.
           </p>
         </div>
       )}
@@ -148,7 +148,7 @@ ${data.message}
             />
             <FormField
               name="travelInterest"
-              label="What brings you to Journey Within?"
+              label="What brings you to Yoga Within?"
               as="select"
               required
               options={TRAVEL_INTERESTS}
@@ -179,7 +179,7 @@ ${data.message}
                 className="mt-1 h-5 w-5 rounded accent-forest-500"
               />
               <label htmlFor="consent" className="text-body-sm text-text-muted">
-                I agree that Journey Within may use the information submitted here to respond to my enquiry. See the{' '}
+                I agree that Yoga Within may use the information submitted here to respond to my enquiry. See the{' '}
                 <a href="/privacy" className="text-forest-500 hover:underline">
                   Privacy Policy
                 </a>

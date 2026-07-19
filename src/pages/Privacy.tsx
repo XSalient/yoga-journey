@@ -5,8 +5,8 @@ import { setSEOMeta } from '@/lib/seo';
 export const Privacy: React.FC = () => {
   useEffect(() => {
     setSEOMeta({
-      title: 'Privacy Policy | Journey Within',
-      description: 'Journey Within Privacy Policy. Learn how we collect, use, and protect your personal information when you plan your wellness and adventure journeys with us.',
+      title: 'Privacy Policy | Yoga Within',
+      description: 'Yoga Within Privacy Policy. Learn how we collect, use, and protect your personal information when you plan your wellness and adventure journeys with us.',
       keywords: 'privacy policy, data protection, personal information, GDPR',
     });
   }, []);
@@ -23,10 +23,10 @@ export const Privacy: React.FC = () => {
             <section>
               <h2 className="text-h2 font-serif text-text-primary mb-4">1. Introduction</h2>
               <p className="text-body">
-                Journey Within ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, and interact with us.
+                Yoga Within ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, and interact with us.
               </p>
               <p className="text-body">
-                Please read this privacy policy carefully. If you do not agree with our policies and practices, please do not use our services. By accessing and using Journey Within, you signify that you have read, understood, and agree to be bound by all the terms of this Privacy Policy.
+                Please read this privacy policy carefully. If you do not agree with our policies and practices, please do not use our services. By accessing and using Yoga Within, you signify that you have read, understood, and agree to be bound by all the terms of this Privacy Policy.
               </p>
             </section>
 
@@ -196,7 +196,7 @@ export const Privacy: React.FC = () => {
             <section>
               <h2 className="text-h2 font-serif text-text-primary mb-4">14. Your Consent</h2>
               <p className="text-body">
-                By using Journey Within's website and services, you hereby consent to our Privacy Policy and agree to its terms.
+                By using Yoga Within's website and services, you hereby consent to our Privacy Policy and agree to its terms.
               </p>
             </section>
           </div>

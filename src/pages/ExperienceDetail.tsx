@@ -15,7 +15,7 @@ export const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ slug = 'yoga
   useEffect(() => {
     if (experience) {
       setSEOMeta({
-        title: `${experience.title} | Journey Within`,
+        title: `${experience.title} | Yoga Within`,
         description: experience.description,
         keywords: `${experience.title}, ${experience.category}, ${experience.tags.join(', ')}, wellness travel, adventure`,
       });
@@ -90,7 +90,7 @@ export const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ slug = 'yoga
                       {experience.description}
                     </p>
                     <p className="text-body text-text-muted leading-relaxed">
-                      Each Journey Within experience is thoughtfully designed to combine travel, wellness, and meaningful encounters. Our expert guides and local partners ensure every moment reflects our commitment to quality, authenticity, and your wellbeing.
+                      Each Yoga Within experience is thoughtfully designed to combine travel, wellness, and meaningful encounters. Our expert guides and local partners ensure every moment reflects our commitment to quality, authenticity, and your wellbeing.
                     </p>
                   </section>
 
@@ -107,7 +107,7 @@ export const ExperienceDetail: React.FC<ExperienceDetailProps> = ({ slug = 'yoga
                   </section>
 
                   <section>
-                    <h2 className="text-h2 font-serif text-text-primary mb-6">How Journey Within Works</h2>
+                    <h2 className="text-h2 font-serif text-text-primary mb-6">How Yoga Within Works</h2>
                     <div className="space-y-6">
                       <div className="flex gap-4">
                         <div className="flex-shrink-0">
