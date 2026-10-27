@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "environments": {
+    "local": {
+      "launchers": [
+        {
+          "name": "Dev",
+          "command": "npm run dev",
+          "port": 5173,
+          "portArg": "--port {port} --strictPort",
+          "url": "http://localhost:{port}"
+        },
+        {
+          "name": "Preview",
+          "command": "npm run preview",
+          "port": 4173,
+          "url": "http://localhost:{port}"
+        }
+      ]
+    }
+  }
+}
